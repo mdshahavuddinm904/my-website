@@ -33,17 +33,16 @@ body{
   100%{transform:translateY(110vh);}
 }
 
-/* box */
+/* container */
 .container{
-  position:relative;
   width:90%;
   max-width:400px;
   margin:40px auto;
   background:rgba(0,0,0,0.75);
   padding:20px;
   border-radius:20px;
-  box-shadow:0 0 20px cyan;
   text-align:center;
+  box-shadow:0 0 20px cyan;
 }
 
 /* welcome */
@@ -51,7 +50,6 @@ body{
   color:cyan;
   font-size:18px;
   margin-bottom:10px;
-  text-shadow:0 0 10px cyan;
 }
 
 /* profile */
@@ -91,16 +89,10 @@ h2{
   align-items:center;
   justify-content:center;
   box-shadow:0 0 10px cyan;
-  transition:0.3s;
 }
 
 .icon img{
   width:20px;
-}
-
-.icon:hover{
-  transform:scale(1.2);
-  box-shadow:0 0 20px cyan;
 }
 
 /* buttons */
@@ -115,7 +107,7 @@ h2{
 }
 
 /* emoji line */
-.emoji-line{
+.emoji{
   margin:10px 0 5px;
   font-size:18px;
 }
@@ -141,31 +133,28 @@ h2{
 
 <div class="container">
 
-  <!-- welcome -->
   <div class="welcome">👋 Welcome to Sharaf Uddin Official</div>
 
-  <!-- profile -->
   <div class="profile">
     <img src="https://i.postimg.cc/pLR7bfkS/IMG-20260426-143020-930.jpg">
   </div>
 
   <h2>Sharaf Uddin Official</h2>
 
-  <!-- icons -->
   <div class="icons">
     <a class="icon" href="https://facebook.com"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
     <a class="icon" href="https://tiktok.com"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"></a>
     <a class="icon" href="https://t.me"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"></a>
   </div>
 
-  <!-- music button -->
-  <button class="btn" onclick="playMusic()">🎵 Music</button>
+  <!-- MUSIC BUTTON -->
+  <button class="btn" onclick="playMusic()">🎵 Play Music</button>
 
-  <!-- emoji line ABOVE time button -->
-  <div class="emoji-line">❄️ ✨ 💙</div>
+  <!-- EMOJI LINE (time button এর উপরে) -->
+  <div class="emoji">❄️ ✨ 💙</div>
 
-  <!-- time button -->
-  <button class="btn" onclick="showTime()">⏰ Show Time</button>
+  <!-- TIME BUTTON -->
+  <button class="btn" onclick="toggleTime()">⏰ Time</button>
 
   <div class="timeBox" id="timeBox"></div>
 
@@ -173,10 +162,10 @@ h2{
 
 <script>
 
-/* snow */
+/* ❄️ snow */
 const snow=document.getElementById("snow");
 
-function emoji(){
+function drop(){
   let s=document.createElement("span");
   s.innerHTML="❄️";
   s.style.left=Math.random()*100+"vw";
@@ -184,19 +173,24 @@ function emoji(){
   snow.appendChild(s);
   setTimeout(()=>s.remove(),5000);
 }
-setInterval(emoji,150);
+setInterval(drop,150);
 
-/* music */
+/* 🎵 music */
 function playMusic(){
   document.getElementById("bgmusic").play();
 }
 
-/* time click show */
-function showTime(){
-  let t=new Date().toLocaleString("en-US",{timeZone:"Asia/Dhaka"});
+/* ⏰ TOGGLE TIME FIX */
+function toggleTime(){
   let box=document.getElementById("timeBox");
-  box.style.display="block";
-  box.innerHTML="⏰ "+t;
+
+  if(box.style.display==="block"){
+    box.style.display="none";
+  }else{
+    let t=new Date().toLocaleString("en-US",{timeZone:"Asia/Dhaka"});
+    box.innerHTML="⏰ "+t;
+    box.style.display="block";
+  }
 }
 
 </script>

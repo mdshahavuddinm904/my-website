@@ -14,7 +14,7 @@ body {
   color: white;
 }
 
-/* ❄️ BACKGROUND */
+/* ❄️ Background */
 .snow {
   position: fixed;
   top: 0;
@@ -29,7 +29,6 @@ body {
   position: absolute;
   font-size: 20px;
   animation: fall linear infinite;
-  opacity: 0.8;
 }
 
 @keyframes fall {
@@ -102,7 +101,7 @@ h2 {
   box-shadow: 0 0 25px cyan;
 }
 
-/* MUSIC BUTTON */
+/* BUTTON */
 .music-btn {
   margin-top: 15px;
   padding: 10px 20px;
@@ -128,7 +127,6 @@ h2 {
   display: inline-block;
   color: cyan;
   font-weight: bold;
-  box-shadow: 0 0 10px cyan;
 }
 
 /* TEXT */
@@ -142,9 +140,9 @@ h2 {
 
 <body>
 
-<!-- 🎵 ISLAMIC MUSIC -->
+<!-- 🎵 MUSIC (FIXED LINK) -->
 <audio id="bgmusic" loop>
-  <source src="https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasee/001.mp3" type="audio/mpeg">
+  <source src="https://raw.githubusercontent.com/mdshahavuddinm904/my-website/main/ssstik.io_1777203976940.mp3" type="audio/mpeg">
 </audio>
 
 <!-- ❄️ BACKGROUND -->
@@ -177,7 +175,7 @@ h2 {
   </div>
 
   <!-- MUSIC BUTTON -->
-  <button class="music-btn" onclick="playMusic()">🎵 Play Islamic Recitation</button>
+  <button class="music-btn" onclick="playMusic()">🎵 Play Islamic Music</button>
 
   <!-- TIME -->
   <div class="time" id="time"></div>
@@ -231,10 +229,9 @@ function createEmoji() {
 
 setInterval(createEmoji, 150);
 
-/* 🎵 MUSIC PLAY */
+/* 🎵 MUSIC FIX */
 function playMusic() {
-  const music = document.getElementById("bgmusic");
-  music.play();
+  document.getElementById("bgmusic").play();
 }
 
 </script>

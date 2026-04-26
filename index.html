@@ -36,7 +36,7 @@ body {
   100% {transform: translateY(110vh);}
 }
 
-/* BOX */
+/* MAIN BOX */
 .container {
   position: relative;
   z-index: 2;
@@ -111,11 +111,6 @@ h2 {
   color: black;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 0 10px cyan;
-}
-
-.music-btn:active {
-  transform: scale(0.95);
 }
 
 /* TIME */
@@ -140,7 +135,7 @@ h2 {
 
 <body>
 
-<!-- 🎵 MUSIC (FIXED LINK) -->
+<!-- 🎵 YOUR MUSIC -->
 <audio id="bgmusic" loop>
   <source src="https://raw.githubusercontent.com/mdshahavuddinm904/my-website/main/ssstik.io_1777203976940.mp3" type="audio/mpeg">
 </audio>
@@ -175,7 +170,7 @@ h2 {
   </div>
 
   <!-- MUSIC BUTTON -->
-  <button class="music-btn" onclick="playMusic()">🎵 Play Islamic Music</button>
+  <button class="music-btn" onclick="playMusic()">🎵 Play Music</button>
 
   <!-- TIME -->
   <div class="time" id="time"></div>
@@ -229,7 +224,7 @@ function createEmoji() {
 
 setInterval(createEmoji, 150);
 
-/* 🎵 MUSIC FIX */
+/* 🎵 PLAY MUSIC */
 function playMusic() {
   document.getElementById("bgmusic").play();
 }

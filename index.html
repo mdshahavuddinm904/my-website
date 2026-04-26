@@ -14,7 +14,7 @@ body {
   color: white;
 }
 
-/* ❄️ Background */
+/* ❄️ Emoji Background */
 .snow {
   position: fixed;
   top: 0;
@@ -29,6 +29,7 @@ body {
   position: absolute;
   font-size: 20px;
   animation: fall linear infinite;
+  opacity: 0.8;
 }
 
 @keyframes fall {
@@ -135,7 +136,7 @@ h2 {
 
 <body>
 
-<!-- 🎵 YOUR MUSIC -->
+<!-- 🎵 YOUR MUSIC (FIXED) -->
 <audio id="bgmusic" loop>
   <source src="https://raw.githubusercontent.com/mdshahavuddinm904/my-website/main/ssstik.io_1777203976940.mp3" type="audio/mpeg">
 </audio>
@@ -224,7 +225,7 @@ function createEmoji() {
 
 setInterval(createEmoji, 150);
 
-/* 🎵 PLAY MUSIC */
+/* 🎵 MUSIC PLAY */
 function playMusic() {
   document.getElementById("bgmusic").play();
 }

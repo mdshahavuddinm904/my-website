@@ -88,17 +88,15 @@ h2{
   align-items:center;
   justify-content:center;
   box-shadow:0 0 10px cyan;
+  transition:0.2s;
 }
 
 .icon img{
   width:20px;
 }
 
-/* welcome */
-.welcome{
-  margin-top:10px;
-  color:lime;
-  font-size:14px;
+.icon:hover{
+  transform:scale(1.2);
 }
 
 /* buttons */
@@ -117,19 +115,20 @@ h2{
   transform:scale(1.2);
 }
 
-/* bottom text */
+/* typing text */
 .bottom{
   margin-top:15px;
   font-size:13px;
   color:#00ff99;
   line-height:1.6;
+  white-space:pre-line;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🎵 MUSIC (UPDATED FILE) -->
+<!-- 🎵 MUSIC -->
 <audio id="bgmusic" loop>
   <source src="https://raw.githubusercontent.com/mdshahavuddinm904/my-website/main/ssstik.io_1777217719241.mp3" type="audio/mpeg">
 </audio>
@@ -164,16 +163,6 @@ h2{
 
   </div>
 
-  <!-- WELCOME -->
-  <div class="welcome">👋 Hey Welcome to my Bio Website 🌐✨  
-
-💙 My Name: Sharaf Uddin  
-🎂 Age: 20+  
-💼 Work: Forex & Binary Trading 📊💹  
-🚀 Goal: Online Business & Financial Freedom 💰🔥  
-
-🙏 Thanks for visiting my profile 💙✨</div>
-
   <!-- BUTTONS -->
   <button class="btn" onclick="toggleMusic()">🎵 Music</button>
   <button class="btn" id="timeBtn">⏰ Time</button>
@@ -185,7 +174,7 @@ h2{
 
 <script>
 
-/* ❄️ snow (optimized) */
+/* ❄️ snow */
 const snow=document.getElementById("snow");
 
 function drop(){
@@ -198,7 +187,7 @@ function drop(){
 }
 setInterval(drop,250);
 
-/* 🎵 MUSIC TOGGLE FIXED */
+/* 🎵 MUSIC TOGGLE */
 let music=document.getElementById("bgmusic");
 let isPlaying=false;
 
@@ -215,7 +204,7 @@ function toggleMusic(){
   }
 }
 
-/* ⏰ REAL TIME FIXED */
+/* ⏰ REAL TIME */
 function updateTime(){
   let now=new Date();
 
@@ -234,20 +223,26 @@ setInterval(updateTime,1000);
 updateTime();
 
 /* ✍️ typing */
-let text="📩 এমন ওয়েবসাইট বানাতে চাইলে অবশ্যই টেলিগ্রামে মেসেজ দিন  
-🙏 ধন্যবাদ 💙✨  
-
-🎁 সম্পূর্ণ ফ্রিতে এই ধরনের ওয়েবসাইট বানিয়ে দেওয়া হবে  
-⚠️ তবে শর্ত আছে:  
-👉 আমাদের চ্যানেলটি ৫ জনকে শেয়ার করে দিতে হবে 🔗📢  
-😊 ধন্যবাদ 💙";
+let text =
+"👋 Hey Welcome to my Bio Website 🌐✨\n\n" +
+"💙 My Name: Sharaf Uddin\n" +
+"🎂 Age: 20+\n" +
+"💼 Work: Forex & Binary Trading 📊💹\n" +
+"🚀 Goal: Online Business & Financial Freedom 💰🔥\n\n" +
+"🙏 Thanks for visiting my profile 💙✨\n\n" +
+"📩 এমন ওয়েবসাইট বানাতে চাইলে অবশ্যই টেলিগ্রামে মেসেজ দিন\n" +
+"🙏 ধন্যবাদ 💙✨\n\n" +
+"🎁 সম্পূর্ণ ফ্রিতে এই ধরনের ওয়েবসাইট বানিয়ে দেওয়া হবে\n" +
+"⚠️ তবে শর্ত আছে:\n" +
+"👉 আমাদের চ্যানেলটি ৫ জনকে শেয়ার করে দিতে হবে 🔗📢\n" +
+"😊 ধন্যবাদ 💙";
 
 let i=0;
 function type(){
   if(i<text.length){
     document.getElementById("typing").innerHTML+=text.charAt(i);
     i++;
-    setTimeout(type,50);
+    setTimeout(type,40);
   }
 }
 type();

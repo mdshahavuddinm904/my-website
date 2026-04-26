@@ -14,7 +14,7 @@ body{
   overflow:hidden;
 }
 
-/* ❄️ snow background */
+/* ❄️ snow */
 .snow{
   position:fixed;
   width:100%;
@@ -101,7 +101,7 @@ h2{
   font-size:14px;
 }
 
-/* button */
+/* buttons */
 .btn{
   margin:8px;
   padding:10px 15px;
@@ -113,9 +113,17 @@ h2{
   transition:0.2s;
 }
 
-/* click animation */
+/* click effect */
 .btn:active{
   transform:scale(1.2);
+}
+
+/* bottom text */
+.bottom{
+  margin-top:15px;
+  font-size:13px;
+  color:#00ff99;
+  line-height:1.6;
 }
 </style>
 </head>
@@ -160,8 +168,14 @@ h2{
   <!-- WELCOME -->
   <div class="welcome">👋 Welcome to my official website</div>
 
-  <!-- MUSIC BUTTON -->
-  <button class="btn" id="musicBtn" onclick="toggleMusic()">🎵 Music OFF</button>
+  <!-- BUTTONS -->
+  <button class="btn" onclick="toggleMusic()">🎵 Music</button>
+
+  <!-- REAL TIME BUTTON STYLE -->
+  <button class="btn" id="timeBtn">⏰ Time</button>
+
+  <!-- BOTTOM TEXT -->
+  <div class="bottom" id="typing"></div>
 
 </div>
 
@@ -182,21 +196,47 @@ setInterval(drop,150);
 
 /* 🎵 MUSIC TOGGLE */
 let music=document.getElementById("bgmusic");
-let btn=document.getElementById("musicBtn");
-
 let isPlaying=false;
 
 function toggleMusic(){
   if(isPlaying){
     music.pause();
-    btn.innerText="🎵 Music OFF";
     isPlaying=false;
   }else{
     music.play();
-    btn.innerText="🎵 Music ON";
     isPlaying=true;
   }
 }
+
+/* ⏰ REAL TIME (LIVE + SECONDS) */
+function updateTime(){
+  let now=new Date();
+  let h=now.getHours();
+  let m=now.getMinutes();
+  let s=now.getSeconds();
+
+  let ampm=h>=12?"PM":"AM";
+  h=h%12;
+  h=h?h:12;
+
+  document.getElementById("timeBtn").innerHTML=
+  "⏰ "+h+":"+m+":"+s+" "+ampm;
+}
+setInterval(updateTime,1000);
+updateTime();
+
+/* ✍️ typing text */
+let text="📩 এমন ওয়েবসাইট লাগলে অবশ্যই টেলিগ্রামে মেসেজ দিয়েন\n🙏 ধন্যবাদ 💙✨";
+
+let i=0;
+function type(){
+  if(i<text.length){
+    document.getElementById("typing").innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(type,50);
+  }
+}
+type();
 
 </script>
 

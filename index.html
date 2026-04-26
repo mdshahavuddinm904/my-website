@@ -129,7 +129,7 @@ h2{
 
 <body>
 
-<!-- 🎵 MUSIC -->
+<!-- 🎵 MUSIC (UPDATED FILE) -->
 <audio id="bgmusic" loop>
   <source src="https://raw.githubusercontent.com/mdshahavuddinm904/my-website/main/ssstik.io_1777217719241.mp3" type="audio/mpeg">
 </audio>
@@ -178,7 +178,7 @@ h2{
 
 <script>
 
-/* ❄️ snow */
+/* ❄️ snow (optimized) */
 const snow=document.getElementById("snow");
 
 function drop(){
@@ -189,9 +189,9 @@ function drop(){
   snow.appendChild(s);
   setTimeout(()=>s.remove(),5000);
 }
-setInterval(drop,150);
+setInterval(drop,250);
 
-/* 🎵 MUSIC FIX (IMPORTANT) */
+/* 🎵 MUSIC TOGGLE FIXED */
 let music=document.getElementById("bgmusic");
 let isPlaying=false;
 
@@ -208,13 +208,13 @@ function toggleMusic(){
   }
 }
 
-/* ⏰ REAL TIME */
+/* ⏰ REAL TIME FIXED */
 function updateTime(){
   let now=new Date();
 
   let h=now.getHours();
-  let m=now.getMinutes();
-  let s=now.getSeconds();
+  let m=String(now.getMinutes()).padStart(2,"0");
+  let s=String(now.getSeconds()).padStart(2,"0");
 
   let ampm=h>=12?"PM":"AM";
   h=h%12;

@@ -113,7 +113,6 @@ h2{
   transition:0.2s;
 }
 
-/* click effect */
 .btn:active{
   transform:scale(1.2);
 }
@@ -132,7 +131,7 @@ h2{
 
 <!-- 🎵 MUSIC -->
 <audio id="bgmusic" loop>
-  <source src="https://raw.githubusercontent.com/mdshahavuddinm904/my-website/main/ssstik.io_1777203976940.mp3">
+  <source src="https://raw.githubusercontent.com/mdshahavuddinm904/my-website/main/ssstik.io_1777203976940.mp3" type="audio/mpeg">
 </audio>
 
 <!-- ❄️ snow -->
@@ -170,11 +169,9 @@ h2{
 
   <!-- BUTTONS -->
   <button class="btn" onclick="toggleMusic()">🎵 Music</button>
-
-  <!-- REAL TIME BUTTON STYLE -->
   <button class="btn" id="timeBtn">⏰ Time</button>
 
-  <!-- BOTTOM TEXT -->
+  <!-- TEXT -->
   <div class="bottom" id="typing"></div>
 
 </div>
@@ -194,23 +191,27 @@ function drop(){
 }
 setInterval(drop,150);
 
-/* 🎵 MUSIC TOGGLE */
+/* 🎵 MUSIC FIX (IMPORTANT) */
 let music=document.getElementById("bgmusic");
 let isPlaying=false;
 
 function toggleMusic(){
-  if(isPlaying){
+  if(!isPlaying){
+    music.play().then(()=>{
+      isPlaying=true;
+    }).catch(()=>{
+      alert("Tap again to start music 🎵");
+    });
+  }else{
     music.pause();
     isPlaying=false;
-  }else{
-    music.play();
-    isPlaying=true;
   }
 }
 
-/* ⏰ REAL TIME (LIVE + SECONDS) */
+/* ⏰ REAL TIME */
 function updateTime(){
   let now=new Date();
+
   let h=now.getHours();
   let m=now.getMinutes();
   let s=now.getSeconds();
@@ -225,7 +226,7 @@ function updateTime(){
 setInterval(updateTime,1000);
 updateTime();
 
-/* ✍️ typing text */
+/* ✍️ typing */
 let text="📩 এমন ওয়েবসাইট লাগলে অবশ্যই টেলিগ্রামে মেসেজ দিয়েন\n🙏 ধন্যবাদ 💙✨";
 
 let i=0;

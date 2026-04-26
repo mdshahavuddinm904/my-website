@@ -14,12 +14,13 @@ body{
   overflow:hidden;
 }
 
-/* ❄️ background */
+/* ❄️ snow background */
 .snow{
   position:fixed;
   width:100%;
   height:100%;
   pointer-events:none;
+  z-index:0;
 }
 
 .snow span{
@@ -33,9 +34,10 @@ body{
   100%{transform:translateY(110vh);}
 }
 
-/* container */
+/* main box */
 .container{
   position:relative;
+  z-index:2;
   width:90%;
   max-width:400px;
   margin:30px auto;
@@ -49,6 +51,7 @@ body{
 /* logo */
 .logo img{
   width:90px;
+  height:90px;
   border-radius:50%;
   border:3px solid cyan;
 }
@@ -85,10 +88,15 @@ h2{
   align-items:center;
   justify-content:center;
   box-shadow:0 0 10px cyan;
+  transition:0.2s;
 }
 
 .icon img{
   width:20px;
+}
+
+.icon:hover{
+  transform:scale(1.2);
 }
 
 /* welcome */
@@ -110,16 +118,17 @@ h2{
   transition:0.2s;
 }
 
+/* click zoom effect */
 .btn:active{
   transform:scale(1.2);
 }
 
-/* space between buttons & text */
+/* spacing */
 .spacer{
-  height:30px;
+  height:25px;
 }
 
-/* typing text bottom */
+/* bottom typing text */
 .bottom{
   margin-top:10px;
   font-size:13px;
@@ -136,7 +145,7 @@ h2{
   <source src="https://raw.githubusercontent.com/mdshahavuddinm904/my-website/main/ssstik.io_1777203976940.mp3">
 </audio>
 
-<!-- ❄️ background -->
+<!-- ❄️ snow -->
 <div class="snow" id="snow"></div>
 
 <div class="container">
@@ -149,24 +158,34 @@ h2{
   <!-- NAME -->
   <h2>Sharaf Uddin Official</h2>
 
-  <!-- ICONS -->
+  <!-- SOCIAL ICONS -->
   <div class="icons">
-    <a class="icon" href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
-    <a class="icon" href="#"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"></a>
-    <a class="icon" href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"></a>
+
+    <a class="icon" href="https://www.facebook.com/share/18Y2Cbkgkt/" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+    </a>
+
+    <a class="icon" href="https://www.tiktok.com/@mdraju_3m?_r=1&_t=ZS-95rSJ1P5Ulm" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+    </a>
+
+    <a class="icon" href="https://t.me/Smart_Method_Owner" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
+    </a>
+
   </div>
 
   <!-- WELCOME -->
-  <div class="welcome">👋 Welcome to my website</div>
+  <div class="welcome">👋 Welcome to my official website</div>
 
   <!-- BUTTONS -->
   <button class="btn" onclick="playMusic()">🎵 Music</button>
   <button class="btn" onclick="showTime(this)">⏰ Time</button>
 
-  <!-- SPACE (IMPORTANT FIX) -->
+  <!-- SPACE -->
   <div class="spacer"></div>
 
-  <!-- TYPE TEXT -->
+  <!-- BOTTOM TEXT -->
   <div class="bottom" id="typing"></div>
 
 </div>
@@ -191,7 +210,7 @@ function playMusic(){
   document.getElementById("bgmusic").play();
 }
 
-/* ⏰ time button */
+/* ⏰ time */
 function showTime(btn){
   btn.style.transform="scale(1.2)";
   setTimeout(()=>btn.style.transform="scale(1)",200);

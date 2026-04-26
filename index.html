@@ -34,7 +34,7 @@ body{
   100%{transform:translateY(110vh);}
 }
 
-/* main box */
+/* container */
 .container{
   position:relative;
   z-index:2;
@@ -88,15 +88,10 @@ h2{
   align-items:center;
   justify-content:center;
   box-shadow:0 0 10px cyan;
-  transition:0.2s;
 }
 
 .icon img{
   width:20px;
-}
-
-.icon:hover{
-  transform:scale(1.2);
 }
 
 /* welcome */
@@ -106,9 +101,9 @@ h2{
   font-size:14px;
 }
 
-/* buttons */
+/* button */
 .btn{
-  margin:6px;
+  margin:8px;
   padding:10px 15px;
   border:none;
   border-radius:20px;
@@ -118,22 +113,9 @@ h2{
   transition:0.2s;
 }
 
-/* click zoom effect */
+/* click animation */
 .btn:active{
   transform:scale(1.2);
-}
-
-/* spacing */
-.spacer{
-  height:25px;
-}
-
-/* bottom typing text */
-.bottom{
-  margin-top:10px;
-  font-size:13px;
-  color:#00ff99;
-  line-height:1.6;
 }
 </style>
 </head>
@@ -158,7 +140,7 @@ h2{
   <!-- NAME -->
   <h2>Sharaf Uddin Official</h2>
 
-  <!-- SOCIAL ICONS -->
+  <!-- SOCIAL -->
   <div class="icons">
 
     <a class="icon" href="https://www.facebook.com/share/18Y2Cbkgkt/" target="_blank">
@@ -178,15 +160,8 @@ h2{
   <!-- WELCOME -->
   <div class="welcome">👋 Welcome to my official website</div>
 
-  <!-- BUTTONS -->
-  <button class="btn" onclick="playMusic()">🎵 Music</button>
-  <button class="btn" onclick="showTime(this)">⏰ Time</button>
-
-  <!-- SPACE -->
-  <div class="spacer"></div>
-
-  <!-- BOTTOM TEXT -->
-  <div class="bottom" id="typing"></div>
+  <!-- MUSIC BUTTON -->
+  <button class="btn" id="musicBtn" onclick="toggleMusic()">🎵 Music OFF</button>
 
 </div>
 
@@ -205,32 +180,23 @@ function drop(){
 }
 setInterval(drop,150);
 
-/* 🎵 music */
-function playMusic(){
-  document.getElementById("bgmusic").play();
-}
+/* 🎵 MUSIC TOGGLE */
+let music=document.getElementById("bgmusic");
+let btn=document.getElementById("musicBtn");
 
-/* ⏰ time */
-function showTime(btn){
-  btn.style.transform="scale(1.2)";
-  setTimeout(()=>btn.style.transform="scale(1)",200);
+let isPlaying=false;
 
-  let t=new Date().toLocaleString("en-US",{timeZone:"Asia/Dhaka"});
-  btn.innerHTML="⏰ "+t;
-}
-
-/* ✍️ typing effect */
-let text="📩 এমন ওয়েবসাইট লাগলে অবশ্যই টেলিগ্রামে মেসেজ দিয়েন\n🙏 ধন্যবাদ 💙✨";
-
-let i=0;
-function type(){
-  if(i<text.length){
-    document.getElementById("typing").innerHTML+=text.charAt(i);
-    i++;
-    setTimeout(type,50);
+function toggleMusic(){
+  if(isPlaying){
+    music.pause();
+    btn.innerText="🎵 Music OFF";
+    isPlaying=false;
+  }else{
+    music.play();
+    btn.innerText="🎵 Music ON";
+    isPlaying=true;
   }
 }
-type();
 
 </script>
 

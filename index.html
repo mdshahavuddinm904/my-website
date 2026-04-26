@@ -20,7 +20,6 @@ body{
   width:100%;
   height:100%;
   pointer-events:none;
-  z-index:0;
 }
 
 .snow span{
@@ -37,7 +36,6 @@ body{
 /* container */
 .container{
   position:relative;
-  z-index:2;
   width:90%;
   max-width:400px;
   margin:30px auto;
@@ -51,7 +49,6 @@ body{
 /* logo */
 .logo img{
   width:90px;
-  height:90px;
   border-radius:50%;
   border:3px solid cyan;
 }
@@ -88,16 +85,10 @@ h2{
   align-items:center;
   justify-content:center;
   box-shadow:0 0 10px cyan;
-  transition:0.3s;
 }
 
 .icon img{
   width:20px;
-}
-
-.icon:hover{
-  transform:scale(1.2);
-  box-shadow:0 0 20px cyan;
 }
 
 /* welcome */
@@ -107,7 +98,7 @@ h2{
   font-size:14px;
 }
 
-/* buttons */
+/* BUTTON */
 .btn{
   margin:6px;
   padding:10px 15px;
@@ -116,70 +107,56 @@ h2{
   cursor:pointer;
   background:cyan;
   font-weight:bold;
+  transition:0.2s;
 }
 
-/* time on button */
-.timeOnBtn{
-  display:block;
-  font-size:12px;
-  color:black;
-  margin-bottom:5px;
+/* press effect */
+.btn:active{
+  transform:scale(1.2);
 }
 
-/* bottom text */
+/* typing text bottom */
 .bottom{
-  margin-top:15px;
-  color:#00ff99;
+  position:absolute;
+  bottom:10px;
+  left:0;
+  right:0;
   font-size:13px;
-  line-height:1.6;
+  color:#00ff99;
+  padding:10px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🎵 MUSIC -->
 <audio id="bgmusic" loop>
   <source src="https://raw.githubusercontent.com/mdshahavuddinm904/my-website/main/ssstik.io_1777203976940.mp3">
 </audio>
 
-<!-- ❄️ background -->
 <div class="snow" id="snow"></div>
 
 <div class="container">
 
-  <!-- LOGO -->
   <div class="logo">
     <img src="https://i.postimg.cc/pLR7bfkS/IMG-20260426-143020-930.jpg">
   </div>
 
-  <!-- NAME -->
   <h2>Sharaf Uddin Official</h2>
 
-  <!-- ICONS -->
   <div class="icons">
-    <a class="icon" href="https://facebook.com"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
-    <a class="icon" href="https://tiktok.com"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"></a>
-    <a class="icon" href="https://t.me"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"></a>
+    <a class="icon" href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
+    <a class="icon" href="#"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"></a>
+    <a class="icon" href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"></a>
   </div>
 
-  <!-- WELCOME -->
-  <div class="welcome">👋 Welcome to my official website</div>
+  <div class="welcome">👋 Welcome to my website</div>
 
-  <!-- MUSIC BUTTON -->
-  <button class="btn" onclick="playMusic()">🎵 Play Music</button>
+  <button class="btn" onclick="playMusic()">🎵 Music</button>
+  <button class="btn" onclick="showTime(this)">⏰ Time</button>
 
-  <!-- TIME BUTTON (time inside button) -->
-  <button class="btn" onclick="showTime()">
-    <span class="timeOnBtn" id="timeBtn">⏰ Click for Time</span>
-  </button>
-
-  <!-- BOTTOM TEXT -->
-  <div class="bottom">
-    ⏳ এখানে টাইম টাইপিং হচ্ছে...<br>
-    📩 এমন ওয়েবসাইট লাগলে অবশ্যই টেলিগ্রামে মেসেজ দিয়েন<br>
-    🙏 ধন্যবাদ 💙✨
-  </div>
+  <!-- typing text -->
+  <div class="bottom" id="typing"></div>
 
 </div>
 
@@ -200,14 +177,31 @@ setInterval(drop,150);
 
 /* 🎵 music */
 function playMusic(){
-  document.getElementById("bgmusic").play();
+  let m=document.getElementById("bgmusic");
+  m.play();
 }
 
-/* ⏰ time on button */
-function showTime(){
+/* ⏰ time button enlarge + show */
+function showTime(btn){
+  btn.style.transform="scale(1.2)";
+  setTimeout(()=>btn.style.transform="scale(1)",200);
+
   let t=new Date().toLocaleString("en-US",{timeZone:"Asia/Dhaka"});
-  document.getElementById("timeBtn").innerHTML="⏰ "+t;
+  btn.innerHTML="⏰ "+t;
 }
+
+/* ✍️ typing effect */
+let text="📩 এমন ওয়েবসাইট লাগলে অবশ্যই টেলিগ্রামে মেসেজ দিয়েন\n🙏 ধন্যবাদ 💙";
+
+let i=0;
+function type(){
+  if(i<text.length){
+    document.getElementById("typing").innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(type,50);
+  }
+}
+type();
 
 </script>
 

@@ -14,7 +14,7 @@ body {
   color: white;
 }
 
-/* ❄️ Emoji Background */
+/* ❄️ BACKGROUND */
 .snow {
   position: fixed;
   top: 0;
@@ -37,7 +37,7 @@ body {
   100% {transform: translateY(110vh);}
 }
 
-/* MAIN BOX */
+/* BOX */
 .container {
   position: relative;
   z-index: 2;
@@ -99,23 +99,7 @@ h2 {
 
 .icon:hover {
   transform: scale(1.2);
-  box-shadow: 0 0 25px cyan, 0 0 50px cyan;
-}
-
-.icon:active {
-  transform: scale(0.9);
-}
-
-/* TIME */
-.time {
-  background: black;
-  padding: 8px 15px;
-  border-radius: 20px;
-  display: inline-block;
-  color: cyan;
-  font-weight: bold;
-  box-shadow: 0 0 10px cyan;
-  margin-top: 10px;
+  box-shadow: 0 0 25px cyan;
 }
 
 /* MUSIC BUTTON */
@@ -129,16 +113,22 @@ h2 {
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 0 10px cyan;
-  transition: 0.3s;
-}
-
-.music-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 25px cyan;
 }
 
 .music-btn:active {
   transform: scale(0.95);
+}
+
+/* TIME */
+.time {
+  margin-top: 10px;
+  background: black;
+  padding: 8px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  color: cyan;
+  font-weight: bold;
+  box-shadow: 0 0 10px cyan;
 }
 
 /* TEXT */
@@ -152,9 +142,9 @@ h2 {
 
 <body>
 
-<!-- 🎵 MUSIC -->
+<!-- 🎵 ISLAMIC MUSIC -->
 <audio id="bgmusic" loop>
-  <source src="YOUR_ISLAMIC_MUSIC.mp3" type="audio/mpeg">
+  <source src="https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasee/001.mp3" type="audio/mpeg">
 </audio>
 
 <!-- ❄️ BACKGROUND -->
@@ -163,7 +153,6 @@ h2 {
 <!-- MAIN -->
 <div class="container">
 
-  <!-- PROFILE -->
   <div class="profile">
     <img src="https://i.postimg.cc/pLR7bfkS/IMG-20260426-143020-930.jpg">
   </div>
@@ -188,7 +177,7 @@ h2 {
   </div>
 
   <!-- MUSIC BUTTON -->
-  <button class="music-btn" onclick="playMusic()">🎵 Play Islamic Music</button>
+  <button class="music-btn" onclick="playMusic()">🎵 Play Islamic Recitation</button>
 
   <!-- TIME -->
   <div class="time" id="time"></div>
@@ -224,7 +213,7 @@ function updateTime() {
 updateTime();
 setInterval(updateTime, 1000);
 
-/* ❄️ EMOJI RAIN */
+/* ❄️ EMOJI */
 const snow = document.getElementById("snow");
 
 function createEmoji() {
@@ -242,9 +231,10 @@ function createEmoji() {
 
 setInterval(createEmoji, 150);
 
-/* 🎵 MUSIC */
+/* 🎵 MUSIC PLAY */
 function playMusic() {
-  document.getElementById("bgmusic").play();
+  const music = document.getElementById("bgmusic");
+  music.play();
 }
 
 </script>

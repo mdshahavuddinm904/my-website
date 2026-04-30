@@ -16,13 +16,11 @@
 }
 
 body{
-  height:100vh;
+  min-height:100vh;
   background:linear-gradient(135deg,#020617,#0b1020,#020617);
   color:white;
-
-  /* ✅ SCROLL FIX */
-  overflow-x:hidden;
   overflow-y:auto;
+  overflow-x:hidden;
 }
 
 /* ⭐ animated background glow */
@@ -147,6 +145,7 @@ h2{
 .icon img{
   width:24px;
   height:24px;
+  object-fit:contain;
   filter:drop-shadow(0 0 8px cyan);
 }
 
@@ -198,6 +197,15 @@ h2{
   color:#00ff99;
   white-space:pre-line;
   box-shadow:0 0 15px rgba(0,255,255,0.2);
+}
+
+/* smooth scrollbar */
+::-webkit-scrollbar{
+  width:6px;
+}
+::-webkit-scrollbar-thumb{
+  background:cyan;
+  border-radius:10px;
 }
 </style>
 </head>
@@ -300,6 +308,15 @@ function toggleMusic(){
   }
 }
 
+/* 🔥 FIRST CLICK ANYWHERE = MUSIC ON */
+document.addEventListener("click", function(){
+  if(!isPlaying){
+    music.play().then(()=>{
+      isPlaying=true;
+    }).catch(()=>{});
+  }
+},{once:true});
+
 /* time */
 function updateTime(){
   let now=new Date();
@@ -323,7 +340,7 @@ let text =
 "💼 Work: Forex & Binary Trading 📊💹\n" +
 "🚀 Goal: Online Business & Financial Freedom 💰🔥\n\n" +
 "🙏 Thanks for visiting my profile 💙✨\n\n" +
-"📩 এমন ওয়েবসাইট বানাতে চাইলে অবশ্যই টেলিগ্রামে মেসেজ দিন ***\n" +
+"📩 এমন ওয়েবসাইট বানাতে চাইলে অবশ্যই টেলিগ্রামে মেসেজ দিন\n" +
 "🙏 ধন্যবাদ 💙✨\n\n" +
 "🎁 সম্পূর্ণ ফ্রিতে এই ধরনের ওয়েবসাইট বানিয়ে দেওয়া হবে\n" +
 "⚠️ তবে শর্ত আছে:\n" +
